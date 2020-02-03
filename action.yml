@@ -1,0 +1,16 @@
+# action.yml
+name: 'PRCleanup'
+description: 'Delete argo app when PR is closed'
+inputs:
+  kubeconfig:
+    description: 'secrets.ALPHA_KUBECTL'
+    required: true
+  pr-ref:
+    description: 'github.event.pull_request.head.ref'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ kubeconfig }}
+    - ${{ inputs.pr-ref }}
