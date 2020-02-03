@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash
 
 KUBECONFIG=${1}
 PR_REF= ${2}
